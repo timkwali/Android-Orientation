@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
             orientationCount = savedInstanceState.getInt("orientationC")
         }
         tvOrientationCount.text = "$orientationCount"
-
         Log.d("Tag", "The new count is $orientationCount")
 
         //GO TO NEXT ACTIVITY
@@ -61,13 +60,6 @@ class MainActivity : AppCompatActivity() {
         state.text = lifecycle.currentState.toString()
     }
 
-    //SET COUNTER ON ORIENTATION CHANGE
-//    var orien: TextView = findViewById(R.id.tvOrientationCount)
-
-//    fun onConfigurationChange(newConfig: Configuration) {
-//        super.onConfigurationChanged(newConfig);
-//    }
-
     override fun onSaveInstanceState(outState: Bundle){
         super.onSaveInstanceState(outState)
         outState.putInt("orientationC", orientationCount)
@@ -83,13 +75,6 @@ class MainActivity : AppCompatActivity() {
         var hand = Handler()
         hand.postDelayed(run , 1500)
     }
-
-//    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-//        super.onRestoreInstanceState(savedInstanceState)
-//        orientationCount = savedInstanceState.getInt("orientationC")
-//        orientationCount++
-//        orien.text = "$orientationCount"
-//    }
 
     override fun onResume() {
         super.onResume()

@@ -4,11 +4,15 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings.Global.putInt
+import android.provider.Settings.Secure.putInt
+import android.provider.Settings.System.putInt
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import kotlinx.android.synthetic.main.activity_position.*
+
 
 class PositionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,14 +25,13 @@ class PositionActivity : AppCompatActivity() {
         val addButton = findViewById<Button>(R.id.btnAddFragment)
         val removeButton = findViewById<Button>(R.id.btnRemoveFragment)
 
-        //ADD FRAGMENT
         addButton.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
 
                 var backCount = supportFragmentManager.backStackEntryCount
                 val bundle = Bundle()
                 var nextFragment = Fragment()
-                bundle.putInt("count", backCount)
+                bundle.putInt("count", backCount + 1)
 
                 when (backCount) {
                     0 -> { nextFragment = fragment1 }
@@ -39,11 +42,10 @@ class PositionActivity : AppCompatActivity() {
 
                 if(backCount < 3) {
                     supportFragmentManager.beginTransaction().apply {
-                        nextFragment.setArguments(bundle)
+                        nextFragment.arguments = bundle
                         addToBackStack(null)
                         replace(R.id.flPositions, nextFragment)
                         commit()
-
                     }
                 }
             }
@@ -63,6 +65,5 @@ class PositionActivity : AppCompatActivity() {
 //            val intent = Intent(this, MainActivity::class.java)
 //            startActivity(intent)
 //        }
-
     }
 }
