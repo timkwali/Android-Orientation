@@ -2,9 +2,9 @@
     <string name="app_name">orientation</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="fragment1">CURRENT POSITION:</string>
-    <string name="fragment2">CURRENT POSITION:</string>
-    <string name="fragment3">CURRENT POSITION:</string>
+    <string name="fragment1">CURRENT POSITION:1</string>
+    <string name="fragment2">CURRENT POSITION:2</string>
+    <string name="fragment3">CURRENT POSITION:3</string>
 
     <string name="nextActivity">NEXT ACTIVITY</string>
 </resources>

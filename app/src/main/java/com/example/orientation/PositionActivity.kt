@@ -34,8 +34,7 @@ class PositionActivity : AppCompatActivity() {
                     0 -> { nextFragment = fragment1 }
                     1 -> { nextFragment = fragment2 }
                     2 -> { nextFragment = fragment3 }
-                    else ->  ""//Toast.makeText(this, "NO more Fragments to add", Toast.LENGTH_LONG)
-
+                    else -> { Toast.makeText(this@PositionActivity, "No more Fragments to add", Toast.LENGTH_SHORT).show() }
                 }
 
                 if(backCount < 3) {
@@ -44,6 +43,7 @@ class PositionActivity : AppCompatActivity() {
                         addToBackStack(null)
                         replace(R.id.flPositions, nextFragment)
                         commit()
+
                     }
                 }
             }
@@ -54,6 +54,8 @@ class PositionActivity : AppCompatActivity() {
             val fragmentManager = supportFragmentManager
             if(fragmentManager.backStackEntryCount > 0) {
                 fragmentManager.popBackStack()
+            } else {
+                Toast.makeText(this, "No more Fragments to remove", Toast.LENGTH_SHORT).show()
             }
         }
 
