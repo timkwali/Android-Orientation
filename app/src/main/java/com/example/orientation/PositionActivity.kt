@@ -25,9 +25,11 @@ class PositionActivity : AppCompatActivity() {
         val addButton = findViewById<Button>(R.id.btnAddFragment)
         val removeButton = findViewById<Button>(R.id.btnRemoveFragment)
 
+        //WHEN ADD FRAGMENT BUTTON IS CLICKED
         addButton.setOnClickListener {
             supportFragmentManager.beginTransaction().apply {
 
+                //ADD BACK-STACK-COUNT TO BACK-COUNT
                 var backCount = supportFragmentManager.backStackEntryCount
                 val bundle = Bundle()
                 var nextFragment = Fragment()
@@ -42,6 +44,8 @@ class PositionActivity : AppCompatActivity() {
 
                 if(backCount < 3) {
                     supportFragmentManager.beginTransaction().apply {
+                        //SAVE NEXT-FRAGMENT IN BUNDLE
+                        //PUT NEXT-FRAGMENT IN ACTIVITY
                         nextFragment.arguments = bundle
                         addToBackStack(null)
                         replace(R.id.flPositions, nextFragment)
@@ -61,9 +65,10 @@ class PositionActivity : AppCompatActivity() {
             }
         }
 
-//        fun onBackPressed() {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
+//        this.onBackPressed() {
+//                val intent = Intent(this, MainActivity::class.java)
+//                startActivity(intent)
+//                finish()
 //        }
     }
 }

@@ -13,7 +13,7 @@ class Position1Fragment : Fragment(R.layout.fragment_position1) {
      override fun onStart() {
         super.onStart()
         var count = this.arguments?.get("count")
-        tvCount1.text = "$count"
+        tvCount1.text = " $count"
     }
 }
 
